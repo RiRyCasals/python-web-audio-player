@@ -1,0 +1,2 @@
+src/music/*
+!src/music/.gitkeep
