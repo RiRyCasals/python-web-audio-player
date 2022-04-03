@@ -7,10 +7,10 @@
     </head>
     <body>
         <figure>
-            <figcaption>example audio files</figcaption>
-            <audio controls src="{{ file_path }}">
-                    <p>Your browser does not support the <code>audio</code> element.</p>
-            </audio>
+            <form action="{{ file_path }}" method="GET">
+                <p>{{ file_path }}</p>
+                <button type="submit">再生</button>
+            </form>
         </figure>
     </body>
 </html>
