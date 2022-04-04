@@ -7,10 +7,10 @@
     </head>
     <body>
         <figure>
-            <form action="{{ file_path }}" method="GET">
-                <p>{{ file_path }}</p>
-                <button type="submit">再生</button>
-            </form>
+            <p>↓ストリーミング再生のテスト用音源↓</p>
+            <audio src="{{ file_path }}" controls>
+                <p>お使いのブラウザでは音声を再生できません</p>
+            </audio>
         </figure>
     </body>
 </html>
