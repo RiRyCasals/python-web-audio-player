@@ -7,10 +7,43 @@
     </head>
     <body>
         <figure>
-            <p>↓ストリーミング再生のテスト用音源↓</p>
+            <p>↓ストリーミング再生のテスト用音源(audioタグ利用版)↓</p>
             <audio src="{{ file_path }}" controls>
                 <p>お使いのブラウザでは音声を再生できません</p>
             </audio>
         </figure>
+        <figure>
+            <p>↓ストリーミング再生のテスト用音源(jsオーディオオブジェクト利用版)↓</p>
+            <button onclick="PlaySound()">再生</button>
+            <button onclick="StopSound()">停止</button>
+            <button onclick="Volume(1)">音量を上げる</button>
+            <button onclick="Volume(-1)">音量を下げる</button>
+        </figure>
     </body>
 </html>
+<script type="text/javascript">
+    var audioElem;
+    audioElem = new Audio();
+    audioElem.src = "{{ file_path }}";
+    function PlaySound() {
+        audioElem.play();
+    }
+    function StopSound(){
+        audioElem.pause();
+    }
+    function Volume(flag) {
+        if (0 < flag) {
+            if (0.9 < audioElem.volume) {
+                audioElem.volume = 1;
+            } else {
+                audioElem.volume += 0.1;
+            }
+        } else {
+            if (audioElem.volume < 0.1) {
+                audioElem.volume = 0;
+            } else {
+                audioElem.volume -= 0.1;
+            }
+        }
+    }
+</script>
